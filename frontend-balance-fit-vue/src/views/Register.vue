@@ -4,10 +4,10 @@
         <Logo/>
         <h1 class="text-3xl text-white">BalanceFit</h1>
       </div>
-      <input placeholder='Nombre completo' type="text" />
-      <input placeholder='Correo electronico' type="text" />
-      <input placeholder='Contraseña' type="text" />
-      <input placeholder='Confirmar contraseña' type="password"  />
+      <input class="max-w-[500px]" placeholder='Nombre completo' type="text" />
+      <input class="max-w-[500px]" placeholder='Correo electronico' type="text" />
+      <input class="max-w-[500px]" placeholder='Contraseña' type="text" />
+      <input class="max-w-[500px]" placeholder='Confirmar contraseña' type="password"  />
       <LoginButton>Registratme</LoginButton>
       <FacebookButton/>
       <GoogleButton/>
