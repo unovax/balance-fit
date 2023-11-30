@@ -4,11 +4,11 @@
         <Logo/>
         <h1 class="text-3xl text-white">BalanceFit</h1>
       </div>
-      <input class="max-w-[500px]" placeholder='Nombre completo' type="text" />
-      <input class="max-w-[500px]" placeholder='Correo electronico' type="text" />
-      <input class="max-w-[500px]" placeholder='Contraseña' type="text" />
-      <input class="max-w-[500px]" placeholder='Confirmar contraseña' type="password"  />
-      <LoginButton>Registratme</LoginButton>
+      <input v-model="user.name" class="login_input" placeholder='Nombre completo' type="text" />
+      <input v-model="user.email" class="login_input" placeholder='Correo electronico' type="text" />
+      <input v-model="user.password" class="login_input" placeholder='Contraseña' type="password" />
+      <input v-model="user.password_confirmation" class="login_input" placeholder='Confirmar contraseña' type="password"  />
+      <LoginButton v-on:click.prevent="register">Registrarme</LoginButton>
       <FacebookButton/>
       <GoogleButton/>
       <span class='text-white'>Ya tienes cuenta? <a class="text-blue-400" href="/login">Inicia Sesión</a></span>
@@ -20,8 +20,9 @@ import Logo from '/src/components/login/Logo.vue';
 import LoginButton from '/src/components/login/LoginButton.vue';
 import FacebookButton from '/src/components/login/FacebookButton.vue';
 import GoogleButton from '/src/components/login/GoogleButton.vue';
+import { mapActions } from 'vuex';
 export default {
-  components: {
+  components: { 
       Logo,
       LoginButton,
       FacebookButton,
@@ -29,19 +30,23 @@ export default {
   },
   data() {
       return {
-          username: '',
-          password: ''
+          user: {
+              name: '',
+              email: '',
+              password: '',
+              password_confirmation: ''
+          },
       };
   },
   methods: {
-      login(event) {
-          event.preventDefault();
-          // Perform login logic here
-          console.log('Username:', this.username);
-          console.log('Password:', this.password);
-          // Reset form fields
-          this.username = '';
-          this.password = '';
+    ...mapActions(['registerAction']),
+      register() {
+          this.registerAction(this.user).then((response) => {
+              console.log(response);
+          }).catch((error) => {
+            console.log(error);
+            this.$emit('errorHandler', error);
+          });
       }
   }
 };

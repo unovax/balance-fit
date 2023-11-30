@@ -9,7 +9,7 @@ export default {
       colors: {
         primary: {
           DEFAULT: '#9558a8',
-          hover: '##6d387d',
+          hover: '#6d387d',
           text: '#ddd'
         }
       }
