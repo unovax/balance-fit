@@ -4,11 +4,13 @@
           <Logo/>
           <h1 class="text-3xl text-white">BalanceFit</h1>
         </div>
-        <input v-model="user.email" class="login_input" placeholder='Correo electronico' type="text" />
-        <input v-model="user.password" class="login_input" placeholder='Contraseña' type="password"  />
-        <LoginButton v-on:click.prevent="login">Iniciar sesion</LoginButton>
-        <FacebookButton/>
-        <GoogleButton/>
+        <form class="w-full flex flex-col items-center space-y-2" v-on:submit.prevent="login">
+            <input v-model="user.email" class="login_input" placeholder='Correo electronico' type="text" />
+            <input v-model="user.password" class="login_input" placeholder='Contraseña' type="password"  />
+            <LoginButton type="sumbit">Iniciar sesion</LoginButton>
+            <FacebookButton/>
+            <GoogleButton/>
+        </form>
         <span class='text-white'>No tienes cuenta? <a class="text-blue-400" href="/register">Registrate</a></span>
     </div>
 </template>
@@ -40,8 +42,13 @@ export default {
     methods: {
         ...mapActions(['loginAction']),
         login() {
-            this.loginAction(this.user);
-            
+            this.loginAction(this.user).then((response) => {
+                if(!response)return;
+                if(response.error)return;
+                this.$router.push('/home');
+            }).catch(error => {
+                console.log(error);
+            })
         } 
     }
 };

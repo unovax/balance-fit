@@ -10,7 +10,12 @@ export default {
         primary: {
           DEFAULT: '#9558a8',
           hover: '#6d387d',
-          text: '#ddd'
+          text: '#CCC'
+        },
+        danger: {
+          DEFAULT: '#FF4136',
+          hover: '#D13933',
+          text: '#CCC'
         }
       }
     },

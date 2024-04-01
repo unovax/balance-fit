@@ -6,9 +6,11 @@
   <Error/>
 </template>
 <script>
+import Error from './components/Error.vue'
   export default {
-    name: 'App',
     components: {
-      Error: () => import('/src/components/Error.vue')
-    }
+      Error
+    },
+    name: 'App',
+  }
 </script>

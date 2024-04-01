@@ -42,11 +42,12 @@ export default {
     ...mapActions(['registerAction']),
       register() {
           this.registerAction(this.user).then((response) => {
-              console.log(response);
-          }).catch((error) => {
-            console.log(error);
-            this.$emit('errorHandler', error);
-          });
+              if(!response)return;
+              if(response.error)return;
+              this.$router.push('/home');
+            }).catch(error => {
+                console.log(error);
+            })
       }
   }
 };
