@@ -10,16 +10,11 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        // Validar la solicitud de registro
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:8',
         ]);
-
-        if ($validator->fails()) {
-            return response(['errors' => $validator->errors()->all()], 422);
-        }
 
         // Crear usuario
         $user = User::create([
@@ -28,32 +23,41 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        $user = Auth::user();
         $user->token = $user->createToken('Personal Access Token')->plainTextToken;
-        return response(['user' => $user], 200);
+
+        return response([
+            'user' => $user,
+            'error' => false,
+            'message' => 'Registro de usuario correcto'
+        ], 200);
+
     }
 
     public function login(Request $request)
     {
-        // Validar la solicitud de inicio de sesión
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
-
-        if ($validator->fails()) {
-            return response(['errors' => $validator->errors()->all()], 422);
-        }
 
         // Intentar iniciar sesión
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Usuario autenticado, generar token de acceso
             $user = Auth::user();
             $user->token = $user->createToken('Personal Access Token')->plainTextToken;
-            return response(['user' => $user], 200);
+
+            return response([
+                'user' => $user,
+                'error' => false,
+                'message' => 'Inicio de sesion correcto'
+            ], 200);
+
         } else {
             // Credenciales incorrectas
-            return response(['errors' => ['Credenciales incorrectas']], 401);
+            return response([
+                'error' => true,
+                'message' => 'Credenciales incorrectas'
+            ], 401);
         }
     }
 

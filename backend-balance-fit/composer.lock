@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d60932c29ee8bd3a7764564f48cb5978",
+    "content-hash": "7520a02528160c9240045df9da906080",
     "packages": [
         {
             "name": "brick/math",
@@ -3037,6 +3037,132 @@
             "time": "2023-11-13T09:31:12+00:00"
         },
         {
+            "name": "openfoodfacts/openfoodfacts-laravel",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/openfoodfacts/openfoodfacts-laravel.git",
+                "reference": "b7766566adc747d5c801d98e8d78ee4af3d45ed1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/openfoodfacts/openfoodfacts-laravel/zipball/b7766566adc747d5c801d98e8d78ee4af3d45ed1",
+                "reference": "b7766566adc747d5c801d98e8d78ee4af3d45ed1",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.2",
+                "illuminate/support": "^9.0",
+                "openfoodfacts/openfoodfacts-php": "^0.2.4",
+                "php": "^8.0.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "orchestra/testbench": "^7.0",
+                "phpunit/phpunit": "^9.5.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OpenFoodFacts\\Laravel\\OpenFoodFactsServiceProvider"
+                    ],
+                    "aliases": {
+                        "OpenFoodFacts": "OpenFoodFacts\\Laravel\\Facades\\OpenFoodFacts"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OpenFoodFacts\\Laravel\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eddie Palmans",
+                    "email": "eddie@palmans.nl"
+                }
+            ],
+            "description": "Open Food Facts API wrapper for Laravel",
+            "homepage": "https://github.com/openfoodfacts/openfoodfacts-laravel",
+            "keywords": [
+                "laravel",
+                "openfoodfacts",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/openfoodfacts/openfoodfacts-laravel/issues",
+                "source": "https://github.com/openfoodfacts/openfoodfacts-laravel/tree/v0.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/openfoodfacts",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-08T12:08:50+00:00"
+        },
+        {
+            "name": "openfoodfacts/openfoodfacts-php",
+            "version": "0.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/openfoodfacts/openfoodfacts-php.git",
+                "reference": "e48e090d6049c3e6a4f3684b4893762e80d54c1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/openfoodfacts/openfoodfacts-php/zipball/e48e090d6049c3e6a4f3684b4893762e80d54c1e",
+                "reference": "e48e090d6049c3e6a4f3684b4893762e80d54c1e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.3|^7.0",
+                "php": ">=7.1",
+                "psr/log": "^1.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "require-dev": {
+                "ext-gd": "*",
+                "monolog/monolog": "^1.23",
+                "phpunit/phpunit": "^7.0",
+                "symfony/cache": "^4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OpenFoodFacts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roberto Moreno",
+                    "email": "rmorenp@rampmaster.org",
+                    "homepage": "http://www.rampmaster.org",
+                    "role": "Wrapper Developer"
+                }
+            ],
+            "description": "Open Food Facts API Wrapper, the open database about food.",
+            "homepage": "https://world.openfoodfacts.org/",
+            "support": {
+                "chat": "https://slack.openfoodfacts.org/",
+                "email": "rmorenp@rampamster.org",
+                "issues": "https://github.com/openfoodfacts/openfoodfacts-php/issues",
+                "source": "https://github.com/openfoodfacts/openfoodfacts-php"
+            },
+            "time": "2020-11-10T20:35:10+00:00"
+        },
+        {
             "name": "paragonie/constant_time_encoding",
             "version": "v2.6.3",
             "source": {
@@ -3651,30 +3777,30 @@
         },
         {
             "name": "psr/log",
-            "version": "3.0.0",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "src"
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3695,31 +3821,31 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.0"
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
-            "time": "2021-07-14T16:46:02+00:00"
+            "time": "2021-05-03T11:20:27+00:00"
         },
         {
             "name": "psr/simple-cache",
-            "version": "3.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/simple-cache.git",
-                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865"
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/764e0b3939f5ca87cb904f570ef9be2d78a07865",
-                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -3734,7 +3860,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
             "description": "Common interfaces for simple caching",
@@ -3746,9 +3872,9 @@
                 "simple-cache"
             ],
             "support": {
-                "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
+                "source": "https://github.com/php-fig/simple-cache/tree/master"
             },
-            "time": "2021-10-29T13:26:27+00:00"
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "psy/psysh",
